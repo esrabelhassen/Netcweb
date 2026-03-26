@@ -1,0 +1,30 @@
+{
+  "name": "SiteContent",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Content key identifier e.g. hero_title, about_text"
+    },
+    "value": {
+      "type": "string",
+      "description": "Content value (text or rich HTML)"
+    },
+    "section": {
+      "type": "string",
+      "enum": [
+        "home",
+        "about",
+        "contact",
+        "footer",
+        "seo"
+      ],
+      "description": "Which section this content belongs to"
+    }
+  },
+  "required": [
+    "key",
+    "value",
+    "section"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "Lead",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Lead full name"
+    },
+    "email": {
+      "type": "string",
+      "description": "Lead email"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Lead phone"
+    },
+    "interest": {
+      "type": "string",
+      "description": "Interested service or category"
+    },
+    "message": {
+      "type": "string",
+      "description": "Optional message"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "popup",
+        "contact_form",
+        "service_page",
+        "manual"
+      ],
+      "default": "popup"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "qualified",
+        "converted",
+        "lost"
+      ],
+      "default": "new"
+    }
+  },
+  "required": [
+    "email"
+  ]
+}

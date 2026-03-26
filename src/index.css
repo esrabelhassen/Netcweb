@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-cairo: 'Cairo', 'Inter', sans-serif;
+
+    --background: 220 20% 98%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 228 72% 18%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 93%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 220 14% 93%;
+    --muted-foreground: 220 8% 46%;
+    --accent: 16 100% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 228 72% 18%;
+    --chart-1: 228 72% 18%;
+    --chart-2: 16 100% 55%;
+    --chart-3: 158 64% 45%;
+    --chart-4: 220 8% 46%;
+    --chart-5: 0 84% 60%;
+    --radius: 1rem;
+    --sidebar-background: 228 72% 12%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 16 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 228 50% 20%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 228 50% 20%;
+    --sidebar-ring: 16 100% 55%;
+    --success: 158 64% 40%;
+    --success-foreground: 0 0% 100%;
+  }
+
+  .dark {
+    --background: 228 72% 7%;
+    --foreground: 0 0% 96%;
+    --card: 228 60% 10%;
+    --card-foreground: 0 0% 96%;
+    --popover: 228 60% 10%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 228 60% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 228 40% 16%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 228 40% 16%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 16 100% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 228 40% 18%;
+    --input: 228 40% 18%;
+    --ring: 228 60% 60%;
+    --chart-1: 228 60% 60%;
+    --chart-2: 16 100% 55%;
+    --chart-3: 158 64% 45%;
+    --chart-4: 220 10% 55%;
+    --chart-5: 0 84% 60%;
+    --sidebar-background: 228 72% 5%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 16 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 228 50% 14%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 228 50% 14%;
+    --sidebar-ring: 16 100% 55%;
+    --success: 158 64% 45%;
+    --success-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-inter;
+  }
+  :lang(ar) body,
+  [dir='rtl'] body,
+  [dir='rtl'] {
+    font-family: var(--font-cairo) !important;
+  }
+  :lang(ar),
+  [dir='rtl'] * {
+    font-family: var(--font-cairo);
+  }
+}
+
+/* Glassmorphism utility */
+.glass {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.72);
+}
+.dark .glass {
+  background: rgba(20, 20, 30, 0.72);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.25);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #0D1B4C, #FF4A1C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.dark .gradient-text {
+  background: linear-gradient(135deg, #6B8CFF, #FF6A3D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient background utility */
+.gradient-bg {
+  background: linear-gradient(135deg, #0D1B4C, #FF4A1C);
+}
+
+/* Glow effect */
+.glow {
+  box-shadow: 0 0 40px hsl(var(--primary) / 0.3);
+}
+
+/* Noise texture overlay */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* RTL flip for arrow icons */
+[dir='rtl'] .rtl-flip {
+  transform: scaleX(-1);
+}
